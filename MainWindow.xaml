@@ -124,7 +124,7 @@
 
 
         <Grid>
-        <Frame x:Name="ViewControl" Grid.Row="0" Source="C:\Users\farou\source\repos\WpfApp3\MainWindow.xaml.cs"/>
+            <Frame x:Name="ViewControl" Grid.Row="0" Source="C:\Users\farou\source\repos\WpfApp3\MainWindow.xaml.cs"/>
 
             <Grid Name="Main" Visibility="Visible">
                 <Grid.RowDefinitions>
