@@ -1,22 +1,156 @@
-﻿<Window x:Class="WpfApp3.MainWindow"
+<Window x:Class="WpfApp3.MainWindow"
         x:Name="Derp"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfApp3"
+        xmlns:local ="clr-namespace:WpfApp3"
         mc:Ignorable="d"
         WindowStyle="None"
         ResizeMode="NoResize"
-        Title="MainWindow" Height="1080" Width="1920">
+        Title="MainWindow" Height="1080" Width="1920"
+        Top="0"
+        Left="0">
 
 
         <Window.Background>
-            <ImageBrush ImageSource="C:\Users\farou\source\repos\WpfApp3\Assets\AdobeStock_317505836.jpeg" Opacity="0.6"/>
+        <ImageBrush ImageSource="C:\Users\Farouq\source\repos\WpfApp4\Assets\AdobeStock_317505836.jpeg" Opacity="0.6"/>
         </Window.Background>
 
         <Window.Resources>
-            <Style TargetType="ScrollBar">
+        <ControlTemplate x:Key="SecondScrollViewerTemplate" TargetType="ScrollViewer">
+            <Grid x:Name="Grid" Background="{TemplateBinding Background}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Rectangle x:Name="Corner" Grid.Column="1" Fill="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" Grid.Row="1"/>
+                <ScrollContentPresenter x:Name="PART_ScrollContentPresenter" CanContentScroll="{TemplateBinding CanContentScroll}" CanHorizontallyScroll="False" CanVerticallyScroll="False" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" Grid.Column="0" Margin="{TemplateBinding Padding}" Grid.Row="0"/>
+                <ScrollBar Style="{DynamicResource SecondScroll}" x:Name="PART_HorizontalScrollBar" AutomationProperties.AutomationId="HorizontalScrollBar" Cursor="Arrow" Grid.Column="0" Maximum="{TemplateBinding ScrollableWidth}" Minimum="0" Orientation="Horizontal" Grid.Row="1" Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}" Value="{Binding HorizontalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" ViewportSize="{TemplateBinding ViewportWidth}"/>
+            </Grid>
+        </ControlTemplate>
+
+        <Style x:Key="SecondScroll" TargetType="ScrollBar">
+
+            <Setter Property="SnapsToDevicePixels"
+                    Value="True"/>
+            <Setter Property="OverridesDefaultStyle"
+                    Value="True"/>
+
+            <!--// Style Trigger //-->
+
+
+            <Setter Property="Width"
+                            Value="790"/>
+
+            <Setter Property="Margin"
+                    Value="0,-90,0,-10"/>
+            <!--// Create a style template for the scrollbar //-->
+
+            <Setter Property="Template"
+                            Value="{DynamicResource SecondHorizontalScrollBar}"/>
+
+
+        </Style>
+
+        <!--// Template for the Scrollbar //-->
+
+        <ControlTemplate x:Key="SecondHorizontalScrollBar"
+                         TargetType="{x:Type ScrollBar}">
+
+            <Grid>
+
+
+                <!--// Border with a background //-->
+
+                <Border 
+                    CornerRadius="15"
+                    Background="#BABCD0"
+                    Margin="0,30,0,30"/>
+
+
+                <!--// Track - Container for the element that indicates 
+                           the position of the scrollbar //-->
+
+                <Track
+                    Name="PART_Track"
+                    IsDirectionReversed="False">
+
+
+                    <!--// Thumb - Control that can be dragged by the user //-->
+
+                    <Track.Thumb>
+
+                        <Thumb
+                            
+                            Style="{StaticResource ScrollViewer_Thumb}">
+
+                        </Thumb>
+
+                    </Track.Thumb>
+                </Track>
+            </Grid>
+
+        </ControlTemplate>
+
+        <Style TargetType="Slider">
+            <Setter Property="SnapsToDevicePixels"
+                    Value="True"/>
+            <Setter Property="OverridesDefaultStyle"
+                    Value ="True"/>
+            <Setter Property="Template"
+                    Value="{DynamicResource Slider}"/>
+        </Style>
+
+        <ControlTemplate x:Key="Slider"
+                         TargetType="Slider">
+
+            <Grid Margin="0,0,0,-31">
+
+                <Border
+                    BorderBrush="#F5EFFF"
+                    BorderThickness="7"
+                    CornerRadius="15"
+                    Margin="0,20,8,35"
+                    Background="#000000"
+                    />
+
+                <TextBlock Text="Water Flow" HorizontalAlignment="Center" FontSize="50" VerticalAlignment="Center" Foreground="#FFFFFF" FontFamily="Perpetua" Opacity=".75" Height="75"></TextBlock>
+
+                <Track
+                    Name="PART_Track"
+                    IsDirectionReversed="False" Margin="-4,-11,0,0">
+
+                    <Track.Thumb>
+                        <Thumb
+                            Style="{StaticResource ScrollBar_Thumb}">
+                        </Thumb>
+                    </Track.Thumb>
+                </Track>
+            </Grid>
+
+        </ControlTemplate>
+        <ControlTemplate x:Key="ScrollViewerTemplate" TargetType="ScrollViewer">
+            <Grid x:Name="Grid" Background="{TemplateBinding Background}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Rectangle x:Name="Corner" Grid.Column="1" Fill="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" Grid.Row="1"/>
+                <ScrollContentPresenter x:Name="PART_ScrollContentPresenter" CanContentScroll="{TemplateBinding CanContentScroll}" CanHorizontallyScroll="False" CanVerticallyScroll="False" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" Grid.Column="0" Margin="{TemplateBinding Padding}" Grid.Row="0"/>
+                <ScrollBar Style="{DynamicResource ScrollBarStyle}" x:Name="PART_HorizontalScrollBar" AutomationProperties.AutomationId="HorizontalScrollBar" Cursor="Arrow" Grid.Column="0" Maximum="{TemplateBinding ScrollableWidth}" Minimum="0" Orientation="Horizontal" Grid.Row="1" Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}" Value="{Binding HorizontalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" ViewportSize="{TemplateBinding ViewportWidth}"/>
+            </Grid>
+        </ControlTemplate>
+
+            <Style x:Key="ScrollBarStyle" TargetType="ScrollBar">
 
                 <Setter Property="SnapsToDevicePixels"
                     Value="True"/>
@@ -124,180 +258,326 @@
 
 
         <Grid>
-            <Frame x:Name="ViewControl" Grid.Row="0" Source="C:\Users\farou\source\repos\WpfApp3\MainWindow.xaml.cs"/>
+            <!--<local:ActiveShower Visibility="Collapsed" x:Name="ActiveShower2"/>-->
 
-            <Grid Name="Main" Visibility="Visible">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="100"/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
+        <Grid Name="ActiveGrid" Visibility="Collapsed">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="140"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
 
-                <TextBlock Name="Atlantis" Text="Atlantis" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="107.86" FontFamily="Perpetua" Foreground="#FFF5EFFF" FontWeight="Normal">
-                    <TextBlock.Background>
-                        <SolidColorBrush Opacity="0.995"/>
-                    </TextBlock.Background>
-                </TextBlock>
+            <ScrollViewer Name="ScrollVal"  Grid.Row ="1" Grid.Column ="1" Grid.ColumnSpan ="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" Width="1281" ScrollViewer.PanningMode="HorizontalOnly"  Margin ="0,0,0,0" Template="{DynamicResource SecondScrollViewerTemplate}">
+                <Grid x:Name ="AppViewer" Height="820" Margin="0,0,0,40">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width ="427"/>
+                        <ColumnDefinition Width="427"/>
+                        <ColumnDefinition Width="427"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="420"/>
+                        <RowDefinition Height="420"/>
+                    </Grid.RowDefinitions>
 
 
+                    <Button x:Name ="BPlus" Grid.Row ="0" Grid.Column="0" FontSize="70" Click="Button_ClickAdd" Margin="46,5,45,5">
+                        <Button.BorderBrush>
+                            <SolidColorBrush Color="#FF707070" Opacity="0"/>
+                        </Button.BorderBrush>
+                        <Button.Background>
+                            <ImageBrush ImageSource="C:\Users\Farouq\source\repos\WpfApp4\Assets\Add.png"/>
+                        </Button.Background>
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Cursor" Value="Hand"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True"/>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
 
-                <Grid Name="AddUser" Visibility="Collapsed" Grid.Row="1" Height="400" VerticalAlignment="Top" Margin="600,50,600,30">
+                        <Button.Template>
+                            <ControlTemplate>
+                                <Border
+                                    Background="{TemplateBinding Background}">
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
 
-                    <Border Opacity="1" CornerRadius="15" BorderThickness="16" BorderBrush="#f5efff">
-                        <Border Background="#000000" CornerRadius="20"/>
-                    </Border>
+                    <!--
+                    <Button Grid.Row ="2" Grid.Column="1" Content="Plus" FontSize="70" Click="Button_Click"/>-->
 
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="100"/>
-                            <RowDefinition Height="130"/>
-                            <RowDefinition/>
-                            <RowDefinition Height="16"/>
-                        </Grid.RowDefinitions>
-
-                        <TextBlock Name="addBlock" Text="Enter Name here:" FontSize="65" Foreground="#f5efff"  FontFamily="Perpetua" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-                        <TextBox Name="textReturn" Grid.ColumnSpan="2" Grid.Row="1" FontSize="85" TextAlignment="Center" FontFamily="Perpetua" Foreground="#f5efff" Background="Transparent" Width="520" Height="100" BorderBrush="#f5efff" AcceptsReturn="True"/>
-
-                        <Grid Grid.Row="2">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="17"/>
-                                <ColumnDefinition/>
-                                <ColumnDefinition/>
-                                <ColumnDefinition Width="15"/>
-                            </Grid.ColumnDefinitions>
-
-                            <Button Content="Cancel" Grid.Column="1" Style="{DynamicResource buttonStyle}" Click="Button_Click_1"/>
-                            <Button Content="Confirm" Grid.Column="2" Style="{DynamicResource buttonStyle}" Click="Button_Click"/>
-                        </Grid>
-
-                    </Grid>
+                    <!--
+                    <DockPanel x:Name ="Panel" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Visibility="Collapsed">
+                        <WebBrowser x:Name="Browser"></WebBrowser>
+                    </DockPanel>
+                    -->
                 </Grid>
 
-                <Grid Name="normalGrid" Grid.Row ="1" Visibility="Visible">
+            </ScrollViewer>
 
 
-                    <ScrollViewer Name="UserScroll" 
+            <Grid Grid.RowSpan ="2" Grid.Column ="0" HorizontalAlignment="Left" Width="423" Margin="75,0,0,0">
+
+                <Button x:Name="IncreaseTemp" HorizontalAlignment="Left" Margin="92,540,0,0" VerticalAlignment="Top" Height="112" Width="228" Click="IncreaseTemp_Click">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Cursor" Value="Hand"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True"/>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Border
+                            Background="{TemplateBinding Background}">
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                    <Button.BorderBrush>
+                        <SolidColorBrush Color="#FF1F1F1F" Opacity="0"/>
+                    </Button.BorderBrush>
+                    <Button.Background>
+                        <ImageBrush ImageSource="C:\Users\Farouq\source\repos\WpfApp4\Assets\IncreaseTemp.png" Stretch="Fill"/>
+                    </Button.Background>
+                </Button>
+                <Label x:Name="Temp" Content="°F" HorizontalAlignment="Left" Margin="108,678,0,0" VerticalAlignment="Top" Width="292" Height="132" FontSize="113.45" FontFamily="Perpetua" Foreground="#FFF5EFFF" RenderTransformOrigin="0.689,0.5"/>
+                <Button x:Name="DecreaseTemp" Content="" HorizontalAlignment="Left" Margin="112,848,0,0" VerticalAlignment="Top" Height="112" Width="188" RenderTransformOrigin="0.5,0.5" Click="DecreaseTemp_Click">
+
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Cursor" Value="Hand"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True"/>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Border
+                                Background="{TemplateBinding Background}">
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                    <Button.BorderBrush>
+                        <SolidColorBrush Color="#FF707070" Opacity="0"/>
+                    </Button.BorderBrush>
+                    <Button.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="360"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Button.RenderTransform>
+                    <Button.Background>
+                        <ImageBrush ImageSource="C:\Users\Farouq\source\repos\WpfApp4\Assets\DecreaseTemp.png"/>
+                    </Button.Background>
+                </Button>
+                <Slider Name="WaterFlowVal"  HorizontalAlignment="Left" Margin="20,272,0,0" VerticalAlignment="Top" Width="380" Height="110" ValueChanged="Slider_ValueChanged">
+
+                    <!--<Slider.LayoutTransform>
+                        <ScaleTransform ScaleY="6"/>
+                    </Slider.LayoutTransform>-->
+
+                </Slider>
+            </Grid>
+
+            <Button Grid.Row="0" Grid.Column="0" Name="BackButton" Margin="10,0,480,0" BorderBrush="{x:Null}" Click="BackButton_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="C:\Users\Farouq\source\repos\WpfApp4\Assets\BackButton.png"/>
+                </Button.Background>
+            </Button>
+
+            <TextBlock Grid.Column="1" Text="Atlantis" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="107.86" FontFamily="Perpetua" Foreground="#FFF5EFFF" FontWeight="Normal">
+                <TextBlock.Background>
+                    <SolidColorBrush Opacity="0.995"/>
+                </TextBlock.Background>
+            </TextBlock>
+            <Label Grid.Column="2" VerticalAlignment="Top" x:Name="Time" Content="" Foreground="White" FontFamily="Perpetua" FontSize="62.51" Width="255" Margin="320,36,65,0"/>
+        </Grid>
+
+        <Grid Name="Main" Visibility="Visible">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Name="Atlantis" Text="Atlantis" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="107.86" FontFamily="Perpetua" Foreground="#FFF5EFFF" FontWeight="Normal">
+                <TextBlock.Background>
+                    <SolidColorBrush Opacity="0.995"/>
+                </TextBlock.Background>
+            </TextBlock>
+
+
+
+            <Grid Name="AddUser" Visibility="Collapsed" Grid.Row="1" Height="400" VerticalAlignment="Top" Margin="600,50,600,30">
+
+                <Border Opacity="1" CornerRadius="15" BorderThickness="16" BorderBrush="#f5efff">
+                    <Border Background="#000000" CornerRadius="20"/>
+                </Border>
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="130"/>
+                        <RowDefinition/>
+                        <RowDefinition Height="16"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Name="addBlock" Text="Enter Name here:" FontSize="65" Foreground="#f5efff"  FontFamily="Perpetua" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                    <TextBox Name="textReturn" Grid.ColumnSpan="2" Grid.Row="1" FontSize="85" TextAlignment="Center" FontFamily="Perpetua" Foreground="#f5efff" Background="Transparent" Width="520" Height="100" BorderBrush="#f5efff" AcceptsReturn="True"/>
+
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="17"/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="15"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Button Content="Cancel" Grid.Column="1" Style="{DynamicResource buttonStyle}" Click="Button_Click_1"/>
+                        <Button Content="Confirm" Grid.Column="2" Style="{DynamicResource buttonStyle}" Click="Button_Click"/>
+                    </Grid>
+
+                </Grid>
+            </Grid>
+
+            <Grid Name="normalGrid" Grid.Row ="1" Visibility="Visible">
+
+
+                <ScrollViewer Name="UserScroll" 
                           HorizontalAlignment="Stretch" 
                           VerticalAlignment="Stretch" 
                           HorizontalScrollBarVisibility="Hidden" 
                           VerticalScrollBarVisibility="Disabled" 
-                          ScrollViewer.PanningMode="HorizontalOnly">
-
-                        <!--<ScrollViewer.Triggers>
+                          ScrollViewer.PanningMode="HorizontalOnly"
+                          Template="{DynamicResource ScrollViewerTemplate}">
+                    <!--<ScrollViewer.Triggers>
                     <Trigger Property="Thumb.IsDragging" Value="False">
                         
 
                     </Trigger>
                 </ScrollViewer.Triggers>-->
 
-                        <Grid Name="UserProfiles" Margin="0,0,0,75">
-                            <Grid.RowDefinitions>
-                                <RowDefinition/>
-                                <RowDefinition/>
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width ="200"/>
-                                <ColumnDefinition Width="507"/>
-                                <ColumnDefinition Width="507"/>
-                                <ColumnDefinition Width="507"/>
-                                <ColumnDefinition Width ="200"/>
-                            </Grid.ColumnDefinitions>
+                    <Grid Name="UserProfiles" Margin="0,0,0,75">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width ="200"/>
+                            <ColumnDefinition Width="507"/>
+                            <ColumnDefinition Width="507"/>
+                            <ColumnDefinition Width="507"/>
+                            <ColumnDefinition Width ="200"/>
+                        </Grid.ColumnDefinitions>
 
 
-                            <Button Grid.Row="0" Grid.Column="1" x:Name ="NewUser" Click="NewUser_Click" Margin="0,0,0, 45">
+                        <Button Grid.Row="0" Grid.Column="1" x:Name ="NewUser" Click="NewUser_Click" Margin="0,0,0, 45">
 
-                                <Button.Style>
-                                    <Style TargetType="Button">
-                                        <Setter Property="BorderBrush">
-                                            <Setter.Value>
-                                                <SolidColorBrush Color="#f5efff"/>
-                                            </Setter.Value>
-                                        </Setter>
-                                        <Setter Property="Width" Value="270"/>
-                                        <Setter Property="Height" Value="270"/>
-                                    </Style>
-                                </Button.Style>
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="BorderBrush">
+                                        <Setter.Value>
+                                            <SolidColorBrush Color="#f5efff"/>
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Width" Value="270"/>
+                                    <Setter Property="Height" Value="270"/>
+                                </Style>
+                            </Button.Style>
 
-                                <Button.Template>
-                                    <ControlTemplate>
-                                        <Grid Margin="0,0,0,-100">
-                                            <Grid.RowDefinitions>
-                                                <RowDefinition Height="270"/>
-                                                <RowDefinition Height="90"/>
-                                            </Grid.RowDefinitions>
-                                            <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="8" CornerRadius="30">
-                                                <TextBlock Foreground="#f5efff" Text= "+" FontFamily ="Perpetua" FontSize="200" HorizontalAlignment="Center" VerticalAlignment="Center" Height="270" Width="270" TextAlignment="Center" LineStackingStrategy="BlockLineHeight" LineHeight="275"/>
-                                            </Border>
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Grid Margin="0,0,0,-100">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="270"/>
+                                            <RowDefinition Height="90"/>
+                                        </Grid.RowDefinitions>
+                                        <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="8" CornerRadius="30">
+                                            <TextBlock Foreground="#f5efff" Text= "+" FontFamily ="Perpetua" FontSize="200" HorizontalAlignment="Center" VerticalAlignment="Center" Height="270" Width="270" TextAlignment="Center" LineStackingStrategy="BlockLineHeight" LineHeight="275"/>
+                                        </Border>
 
-                                            <TextBlock Grid.Row="1" Foreground="#f5efff" Text="New User" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="75" FontFamily="Perpetua"/>
-                                        </Grid>
-                                    </ControlTemplate>
-                                </Button.Template>
-                            </Button>
+                                        <TextBlock Grid.Row="1" Foreground="#f5efff" Text="New User" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="75" FontFamily="Perpetua"/>
+                                    </Grid>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
 
-                            <Button Grid.Row="0" Grid.Column="2" x:Name ="Guest" Margin="0,0,0,45" Click="Guest_Click" Visibility="Visible">
-                                <Button.Style>
-                                    <Style TargetType="Button">
-                                        <Setter Property="BorderBrush">
-                                            <Setter.Value>
-                                                <SolidColorBrush Color="#f5efff"/>
-                                            </Setter.Value>
-                                        </Setter>
-                                        <Setter Property="Width" Value="270"/>
-                                        <Setter Property="Height" Value="270"/>
-                                    </Style>
-                                </Button.Style>
+                        <Button Grid.Row="0" Grid.Column="2" x:Name ="Guest" Margin="0,0,0,45" Click="Guest_Click" Visibility="Visible">
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="BorderBrush">
+                                        <Setter.Value>
+                                            <SolidColorBrush Color="#f5efff"/>
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Width" Value="270"/>
+                                    <Setter Property="Height" Value="270"/>
+                                </Style>
+                            </Button.Style>
 
-                                <Button.Template>
-                                    <ControlTemplate>
-                                        <Grid Margin="0,0,0,-100">
-                                            <Grid.RowDefinitions>
-                                                <RowDefinition Height="270"/>
-                                                <RowDefinition Height="90"/>
-                                            </Grid.RowDefinitions>
-                                            <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="8" CornerRadius="30">
-                                                <TextBlock Foreground="#f5efff" FontFamily ="Perpetua" FontSize="100" HorizontalAlignment="Center" Height="270" Width="270" TextAlignment="Center" VerticalAlignment="Center" LineStackingStrategy="BlockLineHeight" LineHeight="225" Text="G"/>
-                                            </Border>
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Grid Margin="0,0,0,-100">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="270"/>
+                                            <RowDefinition Height="90"/>
+                                        </Grid.RowDefinitions>
+                                        <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="8" CornerRadius="30">
+                                            <TextBlock Foreground="#f5efff" FontFamily ="Perpetua" FontSize="100" HorizontalAlignment="Center" Height="270" Width="270" TextAlignment="Center" VerticalAlignment="Center" LineStackingStrategy="BlockLineHeight" LineHeight="225" Text="G"/>
+                                        </Border>
 
-                                            <TextBlock Grid.Row="1" Foreground="#f5efff" Text="Guest" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="75" FontFamily="Perpetua"/>
-                                        </Grid>
-                                    </ControlTemplate>
-                                </Button.Template>
-                            </Button>
+                                        <TextBlock Grid.Row="1" Foreground="#f5efff" Text="Guest" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="75" FontFamily="Perpetua"/>
+                                    </Grid>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
 
-                            <Button Grid.Row="0" Grid.Column="3" x:Name ="Settings" Margin="0,0,0,45" Click="Settings_Click">
-                                <Button.Style>
-                                    <Style TargetType="Button">
-                                        <Setter Property="BorderBrush">
-                                            <Setter.Value>
-                                                <SolidColorBrush Color="#f5efff"/>
-                                            </Setter.Value>
-                                        </Setter>
-                                        <Setter Property="Width" Value="270"/>
-                                        <Setter Property="Height" Value="270"/>
-                                    </Style>
-                                </Button.Style>
+                        <Button Grid.Row="0" Grid.Column="3" x:Name ="Settings" Margin="0,0,0,45" Click="Settings_Click">
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="BorderBrush">
+                                        <Setter.Value>
+                                            <SolidColorBrush Color="#f5efff"/>
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Width" Value="270"/>
+                                    <Setter Property="Height" Value="270"/>
+                                </Style>
+                            </Button.Style>
 
-                                <Button.Template>
-                                    <ControlTemplate>
-                                        <Grid Margin="0,0,0,-100">
-                                            <Grid.RowDefinitions>
-                                                <RowDefinition Height="270"/>
-                                                <RowDefinition Height="90"/>
-                                            </Grid.RowDefinitions>
-                                            <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="8" CornerRadius="30">
-                                                <Image Source="C:\Users\farou\source\repos\WpfApp3\Assets\Gear2.png"/>
-                                            </Border>
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Grid Margin="0,0,0,-100">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="270"/>
+                                            <RowDefinition Height="90"/>
+                                        </Grid.RowDefinitions>
+                                        <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="8" CornerRadius="30">
+                                            <Image Source="C:\Users\Farouq\source\repos\WpfApp4\Assets\Gear2.png"/>
+                                        </Border>
 
-                                            <TextBlock Grid.Row="1" Foreground="#f5efff" Text="Settings" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="75" FontFamily="Perpetua"/>
-                                        </Grid>
-                                    </ControlTemplate>
-                                </Button.Template>
-                            </Button>
+                                        <TextBlock Grid.Row="1" Foreground="#f5efff" Text="Settings" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="75" FontFamily="Perpetua"/>
+                                    </Grid>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
 
-                        </Grid>
-                    </ScrollViewer>
-                </Grid>
+                    </Grid>
+                </ScrollViewer>
             </Grid>
-
         </Grid>
+
+    </Grid>
 </Window>
