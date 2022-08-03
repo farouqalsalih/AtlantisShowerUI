@@ -78,15 +78,18 @@ namespace WpfApp3
             {
                 buttonCollection[] list = new buttonCollection[]
                 {
+                    new buttonCollection("Netflix", Netflix),
                     new buttonCollection("YouTube", YouTube),
                     new buttonCollection("Instagram", Instagram),
-                    new buttonCollection("Netflix", Netflix),
                     new buttonCollection("Spotify", Spotify),
+                    new buttonCollection("Facebook", Facebook),
+                    new buttonCollection("Discord", Discord),
                     new buttonCollection("HBO Max", HBO_Max),
                     new buttonCollection("TikTok", TikTok),
                     new buttonCollection("Prime Video", Prime_Video),
                     new buttonCollection("Hulu", Hulu),
                     new buttonCollection("Apple Music", Apple_Music),
+                    new buttonCollection("Reddit", Reddit),
                 };
 
                 ComboBoxApps.ItemsSource = list;
@@ -108,11 +111,6 @@ namespace WpfApp3
         {
             TempNum++;
             Temp.Content = TempNum.ToString() + "°F";
-
-            //BPlus.Content = Grid.GetColumn(BPlus);
-
-            //Panel.Visibility = Visibility.Visible;
-            //Browser.Navigate(new Uri("http://stackoverflow.com"));
         }
 
         //decrease temp value
@@ -380,6 +378,7 @@ namespace WpfApp3
         {
             Panel.Visibility = Visibility.Collapsed;
             ScrollVal.Visibility = Visibility.Visible;
+            browserView.Source = new Uri("https://blank.org/");
         }
 
         private void Settings_Page_Click(object sender, RoutedEventArgs e)
