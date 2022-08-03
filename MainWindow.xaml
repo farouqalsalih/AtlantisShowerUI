@@ -16,7 +16,7 @@
 
 
     <Window.Background>
-        <ImageBrush ImageSource="C:\Users\farou\source\repos\WpfApp3\Assets\AdobeStock_317505836.jpeg" Opacity="0.6"/>
+        <ImageBrush ImageSource="C:\Users\Farouq\Source\Repos\WpfApp5\Assets\AdobeStock_317505836.jpeg" Opacity="0.6"/>
     </Window.Background>
 
     <Window.Resources>
@@ -532,7 +532,7 @@
 
         <Style x:Key="ComboBoxStyle1" TargetType="{x:Type ComboBox}">
             <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
-            <Setter Property="MaxDropDownHeight" Value="120"/>
+            <Setter Property="MaxDropDownHeight" Value="185"/>
             <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}"/>
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
@@ -545,8 +545,6 @@
 
         </Style>
 
-
-
     </Window.Resources>
 
 
@@ -557,7 +555,7 @@
             <TextBlock Text="Page In Current Development" FontSize="150" FontFamily="Perpetua" Foreground="#f5efff" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
             <Button Grid.Row="0" Grid.Column="0" x:Name="BackButton_Copy" Margin="10,0,1760,940" BorderBrush="{x:Null}" Click="BackButton_Copy_OnClick">
                 <Button.Background>
-                    <ImageBrush ImageSource="C:\Users\farou\source\repos\WpfApp3\Assets\BackButton.png"/>
+                    <ImageBrush ImageSource="C:\Users\Farouq\Source\Repos\WpfApp5\Assets\BackButton.png"/>
                 </Button.Background>
                 <Button.Template>
                     <ControlTemplate>
@@ -568,7 +566,7 @@
             </Button>
         </Grid>
 
-        <Grid Name="ActiveGrid" Visibility="Collapsed">
+        <Grid Name="ActiveGrid" Visibility="Visible">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
@@ -580,7 +578,7 @@
             </Grid.RowDefinitions>
 
             <Grid Name="AddAppGrid" Visibility="Collapsed" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
-                <Border Background="#000000" CornerRadius="15" BorderBrush="#f5efff" BorderThickness="15" Margin="388,151,388,427">
+                <Border Background="#000000" CornerRadius="15" BorderBrush="#f5efff" BorderThickness="15" Margin="388,151,388,350">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="110"/>
@@ -593,7 +591,7 @@
                         <Border Grid.Column="0" Grid.ColumnSpan="2" Background="Gray" CornerRadius="40" Margin="10,20,10,20">
                             <TextBlock Text="Supported Apps:" FontSize="25" FontFamily="Perpetua" Foreground="#f5efff" Margin="10,20"></TextBlock>
                         </Border>
-                        <ComboBox Name="ComboBoxApps" Style="{DynamicResource ComboBoxStyle1}" Grid.Column="1" SelectionChanged="ComboBox_SelectionChanged" Width="265" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="Perpetua"/>
+                        <ComboBox Name="ComboBoxApps" Style="{DynamicResource ComboBoxStyle1}" Grid.Column="1" SelectionChanged="ComboBox_SelectionChanged" Width="265" FontSize="43" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="Perpetua"/>
 
                         <TextBlock Name="AppIsAlreadyAdded" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" FontSize="40" FontFamily="Perpetua" Foreground="#f5efff" Margin="30,5,0,0"></TextBlock>
                         <Grid Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="2">
@@ -606,8 +604,8 @@
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
 
-                            <Button Name="CancelButton" Grid.Row="1" Grid.Column="0" Style="{DynamicResource buttonStyle}" Content="Cancel" Click="CancelButton_OnClick"/>
-                            <Button Name="AddButton" Grid.Row="1" Grid.Column="1" Style="{DynamicResource buttonStyle}" Content="Add" Click="AddButton_OnClick"/>
+                            <Button Name="CancelButton" Grid.Row="1" Grid.Column="0" Style="{DynamicResource buttonStyle}" Content="Cancel" Click="CancelButton_OnClick" Margin="18,70,19,35"/>
+                            <Button Name="AddButton" Grid.Row="1" Grid.Column="1" Style="{DynamicResource buttonStyle}" Content="Add" Click="AddButton_OnClick" Margin="19,70,18,35"/>
 
                         </Grid>
                     </Grid>
@@ -636,7 +634,7 @@
                                         <RowDefinition Height="90"/>
                                     </Grid.RowDefinitions>
                                     <Border Margin="-95,-52,-98,-28" Grid.RowSpan="2">
-                                        <Image Source="C:\Users\farou\source\repos\WpfApp3\Logos\yt 1.png"/>
+                                        <Image Source="C:\Users\Farouq\Source\Repos\WpfApp5\Logos\yt 1.png"/>
 
                                     </Border>
                                     <TextBlock Grid.Row="1" Foreground="#f5efff" Text="YouTube" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="75" FontFamily="Perpetua"/>
@@ -654,7 +652,7 @@
                                         <RowDefinition Height="90"/>
                                     </Grid.RowDefinitions>
                                     <Border Margin="23,0,23,31">
-                                        <Image Source="C:\Users\farou\source\repos\WpfApp3\Logos\image 6.png" Margin="-12,23,3,-30"/>
+                                        <Image Source="C:\Users\Farouq\Source\Repos\WpfApp5\Logos\image 6.png" Margin="-12,23,3,-30"/>
 
                                     </Border>
                                     <TextBlock Grid.Row="1" Foreground="#f5efff" Text="Instagram" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="75" FontFamily="Perpetua"/>
@@ -672,7 +670,7 @@
                                         <RowDefinition Height="90"/>
                                     </Grid.RowDefinitions>
                                     <Border Margin="0,-10,-2,0">
-                                        <Image Source="C:\Users\farou\source\repos\WpfApp3\Logos\image 3.png" Margin="-12,30,-9,-10"/>
+                                        <Image Source="C:\Users\Farouq\Source\Repos\WpfApp5\Logos\image 3.png" Margin="-12,30,-9,-10"/>
 
                                     </Border>
                                     <TextBlock Grid.Row="1" Foreground="#f5efff" Text="Netflix" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="75" FontFamily="Perpetua"/>
@@ -690,7 +688,7 @@
                                         <RowDefinition Height="90"/>
                                     </Grid.RowDefinitions>
                                     <Border Margin="0,-10,-2,0">
-                                        <Image Source="C:\Users\farou\source\repos\WpfApp3\Logos\image 2.png" Margin="-12,30,-9,-10"/>
+                                        <Image Source="C:\Users\Farouq\Source\Repos\WpfApp5\Logos\image 2.png" Margin="-12,30,-9,-10"/>
 
                                     </Border>
                                     <TextBlock Grid.Row="1" Foreground="#f5efff" Text="Spotify" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="75" FontFamily="Perpetua"/>
@@ -699,7 +697,7 @@
                         </Button.Template>
                     </Button>
 
-                    <Button Name="HBO_Max" Visibility="Collapsed" Margin="0,53,0,0" Click="Button_Click_2" BorderBrush="{x:Null}" HorizontalAlignment="Center" VerticalAlignment="Top" Content="https://www.hbomax.com">
+                    <Button  Name="HBO_Max" Visibility="Collapsed" Margin="0,53,0,0" Click="Button_Click_2" BorderBrush="{x:Null}" HorizontalAlignment="Center" VerticalAlignment="Top" Content="https://www.hbomax.com">
                         <Button.Template>
                             <ControlTemplate>
                                 <Grid Width="310">
@@ -708,10 +706,64 @@
                                         <RowDefinition Height="90"/>
                                     </Grid.RowDefinitions>
                                     <Border Margin="0,-10,-2,0">
-                                        <Image Source="C:\Users\farou\source\repos\WpfApp3\Logos\unnamed.png" Margin="-10,20,-10,0"/>
+                                        <Image Source="C:\Users\Farouq\Source\Repos\WpfApp5\Logos\unnamed.png" Margin="-10,20,-10,0"/>
 
                                     </Border>
                                     <TextBlock Grid.Row="1" Foreground="#f5efff" Text="HBO Max" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="75" FontFamily="Perpetua"/>
+                                </Grid>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+
+                    <Button Name="Discord" Visibility="Collapsed" Margin="0,53,0,0" Click="Button_Click_2" BorderBrush="{x:Null}" HorizontalAlignment="Center" VerticalAlignment="Top" Content="https://discord.com/app">
+                        <Button.Template>
+                            <ControlTemplate>
+                                <Grid Width="310">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="250"/>
+                                        <RowDefinition Height="90"/>
+                                    </Grid.RowDefinitions>
+                                    <Border Margin="0,-10,-2,0">
+                                        <Image Source="C:\Users\Farouq\source\repos\WpfApp5\Logos\discord.png" Margin="-10,20,-10,0"/>
+
+                                    </Border>
+                                    <TextBlock Grid.Row="1" Foreground="#f5efff" Text="Discord" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="75" FontFamily="Perpetua"/>
+                                </Grid>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+
+                    <Button Name="Facebook" Visibility="Collapsed" Margin="0,53,0,0" Click="Button_Click_2" BorderBrush="{x:Null}" HorizontalAlignment="Center" VerticalAlignment="Top" Content="https://www.facebook.com/">
+                        <Button.Template>
+                            <ControlTemplate>
+                                <Grid Width="310">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="250"/>
+                                        <RowDefinition Height="90"/>
+                                    </Grid.RowDefinitions>
+                                    <Border Margin="0,-10,-2,0">
+                                        <Image Source="C:\Users\Farouq\source\repos\WpfApp5\Logos\facebook.png" Margin="-10,20,-10,0"/>
+
+                                    </Border>
+                                    <TextBlock Grid.Row="1" Foreground="#f5efff" Text="Facebook" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="75" FontFamily="Perpetua"/>
+                                </Grid>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+
+                    <Button Name="Reddit" Visibility="Collapsed" Margin="0,53,0,0" Click="Button_Click_2" BorderBrush="{x:Null}" HorizontalAlignment="Center" VerticalAlignment="Top" Content="https://www.reddit.com/">
+                        <Button.Template>
+                            <ControlTemplate>
+                                <Grid Width="310">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="250"/>
+                                        <RowDefinition Height="90"/>
+                                    </Grid.RowDefinitions>
+                                    <Border Margin="0,-10,-2,0">
+                                        <Image Source="C:\Users\Farouq\source\repos\WpfApp5\Logos\reddit.png" Margin="-10,20,-10,0"/>
+
+                                    </Border>
+                                    <TextBlock Grid.Row="1" Foreground="#f5efff" Text="Reddit" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="75" FontFamily="Perpetua"/>
                                 </Grid>
                             </ControlTemplate>
                         </Button.Template>
@@ -726,7 +778,7 @@
                                         <RowDefinition Height="90"/>
                                     </Grid.RowDefinitions>
                                     <Border Margin="0,-10,-2,0">
-                                        <Image Source="C:\Users\farou\source\repos\WpfApp3\Logos\Round-TikTok-Logo-1536x1536.png" Margin="-12,15,-12,0" RenderTransformOrigin="0.643,0.575"/>
+                                        <Image Source="C:\Users\Farouq\Source\Repos\WpfApp5\Logos\Round-TikTok-Logo-1536x1536.png" Margin="-12,15,-12,0" RenderTransformOrigin="0.643,0.575"/>
                                     </Border>
                                     <TextBlock Grid.Row="1" Foreground="#f5efff" Text="TikTok" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="75" FontFamily="Perpetua"/>
                                 </Grid>
@@ -743,7 +795,7 @@
                                         <RowDefinition Height="90"/>
                                     </Grid.RowDefinitions>
                                     <Border Margin="0,-10,-2,0">
-                                        <Image Source="C:\Users\farou\source\repos\WpfApp3\Logos\unnamed (1).png" Margin="-12,15,-12,0" RenderTransformOrigin="0.643,0.575"/>
+                                        <Image Source="C:\Users\Farouq\Source\Repos\WpfApp5\Logos\unnamed (1).png" Margin="-12,15,-12,0" RenderTransformOrigin="0.643,0.575"/>
                                     </Border>
                                     <TextBlock Grid.Row="1" Foreground="#f5efff" Text="Prime Video" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="70" FontFamily="Perpetua"/>
                                 </Grid>
@@ -760,7 +812,7 @@
                                         <RowDefinition Height="90"/>
                                     </Grid.RowDefinitions>
                                     <Border Margin="0,-10,-2,0">
-                                        <Image Source="C:\Users\farou\source\repos\WpfApp3\Logos\hulu.png" Margin="-12,15,-12,0" RenderTransformOrigin="0.643,0.575"/>
+                                        <Image Source="C:\Users\Farouq\Source\Repos\WpfApp5\Logos\hulu.png" Margin="-12,15,-12,0" RenderTransformOrigin="0.643,0.575"/>
                                     </Border>
                                     <TextBlock Grid.Row="1" Foreground="#f5efff" Text="Hulu" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="75" FontFamily="Perpetua"/>
                                 </Grid>
@@ -777,7 +829,7 @@
                                         <RowDefinition Height="90"/>
                                     </Grid.RowDefinitions>
                                     <Border Margin="0,-10,-2,0">
-                                        <Image Source="C:\Users\farou\source\repos\WpfApp3\Logos\applemusic.png" Margin="-12,15,-12,0" RenderTransformOrigin="0.643,0.575"/>
+                                        <Image Source="C:\Users\Farouq\Source\Repos\WpfApp5\Logos\applemusic.png" Margin="-12,15,-12,0" RenderTransformOrigin="0.643,0.575"/>
                                     </Border>
                                     <TextBlock Grid.Row="1" Foreground="#f5efff" Text="Apple Music" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="70" FontFamily="Perpetua"/>
                                 </Grid>
@@ -809,7 +861,7 @@
                                         <TextBlock Foreground="#f5efff" Text= "+" FontFamily ="Perpetua" FontSize="200" HorizontalAlignment="Center" VerticalAlignment="Center" Height="270" Width="270" TextAlignment="Center" LineStackingStrategy="BlockLineHeight" LineHeight="275"/>
                                     </Border>
 
-                                    <TextBlock Grid.Row="1" Foreground="#f5efff" Text="New User" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="75" FontFamily="Perpetua"/>
+                                    <TextBlock Grid.Row="1" Foreground="#f5efff" Text="Add App" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="75" FontFamily="Perpetua"/>
                                 </Grid>
                             </ControlTemplate>
                         </Button.Template>
@@ -836,7 +888,7 @@
                                         <RowDefinition Height="90"/>
                                     </Grid.RowDefinitions>
                                     <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="8" CornerRadius="30">
-                                        <Image Source="C:\Users\farou\source\repos\WpfApp3\Assets\Gear2.png"/>
+                                        <Image Source="C:\Users\Farouq\Source\Repos\WpfApp5\Assets\Gear2.png"/>
                                     </Border>
 
                                     <TextBlock Grid.Row="1" Foreground="#f5efff" Text="Settings" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="75" FontFamily="Perpetua"/>
@@ -856,7 +908,7 @@
                 </Grid.RowDefinitions>
                 <Button Margin="107,-20,1081,5" BorderBrush="{x:Null}" Click="Button_Click_3">
                     <Button.Background>
-                        <ImageBrush ImageSource="C:\Users\farou\source\repos\WpfApp3\Assets\Frame 14.png"/>
+                        <ImageBrush ImageSource="C:\Users\Farouq\Source\Repos\WpfApp5\Assets\Frame 14.png"/>
                     </Button.Background>
                     <Button.Template>
                         <ControlTemplate>
@@ -868,7 +920,7 @@
                 </Button>
                 <Button Margin="10,-6,1178,0" BorderBrush="{x:Null}" Click="ButtonBase_OnClick">
                     <Button.Background>
-                        <ImageBrush ImageSource="C:\Users\farou\source\repos\WpfApp3\Assets\Frame 15.png"/>
+                        <ImageBrush ImageSource="C:\Users\Farouq\Source\Repos\WpfApp5\Assets\Frame 15.png"/>
                     </Button.Background>
                     <Button.Template>
                         <ControlTemplate>
@@ -879,7 +931,7 @@
                     </Button.Template>
                 </Button>
                 <DockPanel Grid.Row="1" HorizontalAlignment="Stretch" Visibility="Visible" VerticalAlignment="Stretch">
-                    <wv2:WebView2 Name="browserView"/>
+                    <wv2:WebView2 Name="browserView" ZoomFactor="1.5"/>
                 </DockPanel>
             </Grid>
 
@@ -927,7 +979,7 @@
                         <SolidColorBrush Color="#FF1F1F1F" Opacity="0"/>
                     </Button.BorderBrush>
                     <Button.Background>
-                        <ImageBrush ImageSource="C:\Users\farou\source\repos\WpfApp3\Assets\IncreaseTemp.png" Stretch="Fill"/>
+                        <ImageBrush ImageSource="C:\Users\Farouq\Source\Repos\WpfApp5\Assets\IncreaseTemp.png" Stretch="Fill"/>
                     </Button.Background>
                 </Button>
                 <Label x:Name="Temp" Content="°F" HorizontalAlignment="Left" Margin="108,614,0,0" VerticalAlignment="Top" Width="292" Height="132" FontSize="113.45" FontFamily="Perpetua" Foreground="#FFF5EFFF" RenderTransformOrigin="0.689,0.5"/>
@@ -952,7 +1004,7 @@
                         </TransformGroup>
                     </Button.RenderTransform>
                     <Button.Background>
-                        <ImageBrush ImageSource="C:\Users\farou\source\repos\WpfApp3\Assets\DecreaseTemp.png"/>
+                        <ImageBrush ImageSource="C:\Users\Farouq\Source\Repos\WpfApp5\Assets\DecreaseTemp.png"/>
                     </Button.Background>
                 </Button>
                 <Slider Name="WaterFlowVal"  HorizontalAlignment="Left" Margin="20,226,0,0" VerticalAlignment="Top" Width="380" Height="110" ValueChanged="Slider_ValueChanged">
@@ -966,7 +1018,7 @@
 
             <Button Grid.Row="0" Grid.Column="0" Name="BackButton" Margin="10,0,480,0" BorderBrush="{x:Null}" Click="BackButton_Click">
                 <Button.Background>
-                    <ImageBrush ImageSource="C:\Users\farou\source\repos\WpfApp3\Assets\BackButton.png"/>
+                    <ImageBrush ImageSource="C:\Users\Farouq\Source\Repos\WpfApp5\Assets\BackButton.png"/>
                 </Button.Background>
                 <Button.Template>
                     <ControlTemplate>
@@ -985,7 +1037,7 @@
             <Label Grid.Column="2" VerticalAlignment="Top" x:Name="Time" Content="" Foreground="White" FontFamily="Perpetua" FontSize="62.51" Width="255" Margin="320,36,65,0"/>
         </Grid>
 
-        <Grid Name="Main" Visibility="Visible">
+        <Grid Name="Main" Visibility="Collapsed">
             <Grid.RowDefinitions>
                 <RowDefinition Height="100"/>
                 <RowDefinition/>
@@ -1144,7 +1196,7 @@
                                             <RowDefinition Height="90"/>
                                         </Grid.RowDefinitions>
                                         <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="8" CornerRadius="30">
-                                            <Image Source="C:\Users\farou\source\repos\WpfApp3\Assets\Gear2.png"/>
+                                            <Image Source="C:\Users\Farouq\Source\Repos\WpfApp5\Assets\Gear2.png"/>
                                         </Border>
 
                                         <TextBlock Grid.Row="1" Foreground="#f5efff" Text="Settings" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="75" FontFamily="Perpetua"/>
