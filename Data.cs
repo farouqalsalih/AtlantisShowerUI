@@ -8,9 +8,9 @@ namespace WpfApp3
 {
     class Data
     {
-        private int temperature { get; set; } = 102;
+        public int temperature { get; set; } = 95;
 
-        private int waterFlow { get; set; } = 6;
+        public int waterFlow { get; set; } = 2;
 
         public string user_Name { get; set; }
 
